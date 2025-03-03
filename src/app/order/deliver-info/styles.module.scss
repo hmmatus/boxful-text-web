@@ -1,0 +1,23 @@
+@use "@/styles/theme/theme" as theme;
+
+.delivery-info-page-container {
+  padding: 100px 50px 0 50px;
+}
+
+.content-flex-3 {
+  flex: 3;
+}
+
+.content-flex-1 {
+  flex: 1;
+}
+
+.row-content {
+  @include theme.flex-row;
+  margin-bottom: 52px;
+  column-gap: 20px;
+}
+
+.location-icon {
+  margin-top: 20px;
+}

@@ -1,5 +1,5 @@
 @use 'tailwindcss';
-
+@use './theme/theme.scss' as theme;
 *,
 *::before,
 *::after {
@@ -33,6 +33,10 @@ h6 {
   font-weight: 400;
 }
 
+label {
+  font-size: 14px;
+  color: theme.$label;
+}
 
 // Remove all styles from a tag
 a {
