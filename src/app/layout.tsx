@@ -1,6 +1,7 @@
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Albert_Sans } from "next/font/google";
 import React from "react";
+import "@/styles/globals.scss";
 const AlbertSans = Albert_Sans({
   subsets: ["latin"],
   display: "swap",
