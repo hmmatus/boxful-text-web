@@ -3,6 +3,7 @@ import WrappedInputText from "@/components/inputs/input-text/WrappedInputText";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 import Image from "next/image";
+import WrappedInputDatePicker from "@/components/inputs/input-datepicker/WrappedInputDatePicker";
 export default function DeliverInfoPage() {
   const [value, setValue] = useState("");
   return (
@@ -14,11 +15,9 @@ export default function DeliverInfoPage() {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <WrappedInputText
+        <WrappedInputDatePicker
           containerClassName={"flex-1"}
           label="📅 Fecha programada"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
         />
       </div>
       <div className={styles["row-content"]}>

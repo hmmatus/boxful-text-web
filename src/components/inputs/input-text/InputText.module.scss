@@ -1,9 +1,5 @@
 @use "@/styles/theme/theme" as theme;
 
-.input {
-  height: 60px;
-  border-radius: 10px;
-  border: 1px solid theme.$border;
-  color: theme.$primary-text;
-  font-size: 16px;
+.input-text {
+  @include theme.input;
 }
