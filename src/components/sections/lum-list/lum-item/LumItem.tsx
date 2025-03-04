@@ -3,12 +3,19 @@ import styles from "./LumItem.module.scss";
 import Image from "next/image";
 import WrappedInputText from "@/components/inputs/input-text/WrappedInputText";
 import InputVolume from "@/components/inputs/input-volume/InputVolume";
+import { useState } from "react";
+import { VolumeI } from "@/types/volume.type";
 export interface LumItemProps {
   lum: LumI;
   onRemove: (lum: LumI) => void;
 }
 const LumItem: React.FC<LumItemProps> = ({ lum, onRemove }) => {
-  const {} = lum;
+  const [lumData, setLumData] = useState<LumI>(lum);
+
+  const onChangeInputVolume = (key: keyof VolumeI, value: VolumeI) => {
+    const newValue = value[key];
+    setLumData({ ...lumData, [key]: newValue });
+  };
   return (
     <div className={styles["lum-item-container"]}>
       <div className={styles["form-container"]}>
@@ -17,22 +24,28 @@ const LumItem: React.FC<LumItemProps> = ({ lum, onRemove }) => {
             className="flex flex-1"
             label="Peso en libras"
             suffix={"lb"}
+            value={lumData.weight}
+            onChange={(e) =>
+              setLumData({ ...lumData, weight: parseInt(e.target.value) })
+            }
           />
           <div className="flex flex-3">
             <WrappedInputText
               containerClassName={styles["full-width"]}
               label="Contenido"
+              value={lumData.content}
+              onChange={(e) =>
+                setLumData({ ...lumData, content: e.target.value })
+              }
             />
           </div>
           <InputVolume
             value={{
-              height: 0,
-              length: 0,
-              width: 0,
+              height: lumData.height,
+              length: lumData.length,
+              width: lumData.width,
             }}
-            onChangeValue={(key, value) => {
-              console.log(key, value);
-            }}
+            onChangeValue={(key, value) => onChangeInputVolume(key, value)}
           />
         </div>
       </div>

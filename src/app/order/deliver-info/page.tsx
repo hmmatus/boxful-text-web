@@ -1,8 +1,10 @@
 "use client";
+import "@ant-design/v5-patch-for-react-19";
 import { useState } from "react";
 import WrappedInputText from "@/components/inputs/input-text/WrappedInputText";
 import styles from "./styles.module.scss";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import WrappedInputDatePicker from "@/components/inputs/input-datepicker/WrappedInputDatePicker";
 import WrappedInputPhone from "@/components/inputs/input-phone/WrappedInputPhone";
@@ -11,8 +13,30 @@ import addressList from "@/utils/address-list";
 import departmentList from "@/utils/department-list";
 import municipalityList from "@/utils/municypality-list";
 import { Button } from "antd";
+import { DeliveryI } from "@/types/delivery.type";
+const defaultValues: DeliveryI = {
+  recolectionAddress: "",
+  scheduledDate: "",
+  names: "",
+  lastNames: "",
+  email: "",
+  phone: "",
+  destinyAddress: "",
+  department: "",
+  municipality: "",
+  reference: "",
+  notes: "",
+};
 export default function DeliverInfoPage() {
-  const [value, setValue] = useState("");
+  const router = useRouter();
+  const [values, setValues] = useState<DeliveryI>(defaultValues);
+  const handleChangeValue = (key: keyof DeliveryI, value: string) => {
+    setValues({ ...values, [key]: value });
+  };
+
+  const onPressNext = () => {
+    router.push("/order/packages-list");
+  };
   return (
     <main className={styles["delivery-info-page-container"]}>
       <div className={styles["row-content"]}>
@@ -20,41 +44,44 @@ export default function DeliverInfoPage() {
           containerClassName={"flex-2"}
           label="📍 Dirección de recolección"
           options={addressList}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={values.recolectionAddress}
+          onChange={(value) => handleChangeValue("recolectionAddress", value)}
         />
         <WrappedInputDatePicker
           containerClassName={"flex-1"}
           label="📅 Fecha programada"
+          onChange={(_, dateString) =>
+            handleChangeValue("scheduledDate", dateString as string)
+          }
         />
       </div>
       <div className={styles["row-content"]}>
         <WrappedInputText
           containerClassName={"flex-1"}
           label="Nombres"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={values.names}
+          onChange={(e) => handleChangeValue("names", e.target.value)}
         />
         <WrappedInputText
           containerClassName="flex-1"
           label="Apellidos"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={values.lastNames}
+          onChange={(e) => handleChangeValue("lastNames", e.target.value)}
         />
         <WrappedInputText
           containerClassName="flex-1"
           label="Correo electrónico"
           type="email"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={values.email}
+          onChange={(e) => handleChangeValue("email", e.target.value)}
         />
       </div>
       <div className={styles["row-content"]}>
         <WrappedInputPhone
           containerClassName={"flex-1"}
           label="Telefono"
-          value={value}
-          onChange={(value) => setValue(value as string)}
+          value={values.phone}
+          onChange={(value) => handleChangeValue("phone", value)}
         />
         <Image
           width={20}
@@ -66,40 +93,38 @@ export default function DeliverInfoPage() {
         <WrappedInputText
           containerClassName="flex-2"
           label="Dirección del destinatario"
-          type="email"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={values.destinyAddress}
+          onChange={(e) => handleChangeValue("destinyAddress", e.target.value)}
         />
       </div>
       <div className={styles["row-content"]}>
         <WrappedInputSelect
           containerClassName={"flex-1"}
           label="Departamento"
-          value={value}
+          value={values.department}
           options={departmentList}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(value) => handleChangeValue("department", value)}
         />
         <WrappedInputSelect
           containerClassName="flex-1"
           label="Municipio"
-          value={value}
+          value={values.municipality}
           options={municipalityList}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(value) => handleChangeValue("municipality", value)}
         />
         <WrappedInputText
           containerClassName="flex-1"
           label="Punto de referencia"
-          type="email"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={values.reference}
+          onChange={(e) => handleChangeValue("reference", e.target.value)}
         />
       </div>
       <div className={styles["row-content"]}>
         <WrappedInputText
           containerClassName={"flex-1"}
-          label="Punto de referencia"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          label="Indicaciones"
+          value={values.notes}
+          onChange={(e) => handleChangeValue("notes", e.target.value)}
         />
       </div>
       <div className={`${styles["row-content"]} justify-end`}>
@@ -109,7 +134,7 @@ export default function DeliverInfoPage() {
           variant="solid"
           icon={<ArrowRightOutlined className={styles["next-icon"]} />}
           iconPosition="end"
-          onClick={() => console.log("test")}
+          onClick={onPressNext}
         >
           Siguiente
         </Button>

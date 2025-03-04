@@ -6,7 +6,7 @@ import { VolumeI } from "@/types/volume.type";
 
 export interface InputVolumeProps {
   value: VolumeI;
-  onChangeValue: (key: string, value: VolumeI) => void;
+  onChangeValue: (key: keyof VolumeI, value: VolumeI) => void;
   containerStyle?: React.CSSProperties;
 }
 const InputVolume: React.FC<InputVolumeProps> = ({
@@ -15,7 +15,10 @@ const InputVolume: React.FC<InputVolumeProps> = ({
   containerStyle,
 }) => {
   const [volume, setVolume] = useState<VolumeI>(value);
-  const handleInput = (key: string, e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInput = (
+    key: keyof VolumeI,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const newValue = { ...volume, [key]: e.target.value };
     setVolume(newValue);
     onChangeValue(key, newValue);
