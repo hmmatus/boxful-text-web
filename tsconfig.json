@@ -26,7 +26,8 @@
       "@/pages/*": ["./src/pages/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/types/*": ["./src/types/*"],
-      "@/services/*": ["./src/services/*"]
+      "@/services/*": ["./src/services/*"],
+      "@/zustand/*": ["./src/zustand/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -4,14 +4,19 @@ import { LumI } from "@/types/lum.type";
 import LumItem from "./lum-item/LumItem";
 export interface LumList {
   lums: LumI[];
+  onRemoveItem: (index: number) => void;
 }
-const LumList: React.FC<LumList> = ({ lums }) => {
+const LumList: React.FC<LumList> = ({ lums, onRemoveItem }) => {
   return (
     <section id="lum-list" className="mt-20">
       <label>Agrega tus bultos</label>
       <div className={styles["lum-list-container"]}>
         {lums.map((lum, index) => (
-          <LumItem key={`lum-${index}`} lum={lum} onRemove={() => {}} />
+          <LumItem
+            key={`lum-${index}`}
+            lum={lum}
+            onRemove={() => onRemoveItem(index)}
+          />
         ))}
       </div>
     </section>

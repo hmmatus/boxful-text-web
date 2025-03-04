@@ -29,11 +29,15 @@ export default function PackageListPage() {
   const onGoBack = () => {
     router.replace("/order/deliver-info");
   };
+  const onRemoveLum = (index: number) => {
+    const newLums = lums.filter((lum, i) => i !== index);
+    setLums(newLums);
+  };
   return (
     <main className={styles["packages-list-container"]}>
       <LumForm onSend={(data) => setLums([data, ...lums])} />
       <div style={{ margin: "15px 0" }} />
-      <LumList lums={lums} />
+      <LumList lums={lums} onRemoveItem={(index) => onRemoveLum(index)} />
       <div style={{ margin: "15px 0" }} />
       <div className="flex flex-1 flex-row justify-between">
         <Button

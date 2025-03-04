@@ -14,6 +14,7 @@ import departmentList from "@/utils/department-list";
 import municipalityList from "@/utils/municypality-list";
 import { Button } from "antd";
 import { DeliveryI } from "@/types/delivery.type";
+import { useDeliveryStore } from "@/zustand/delivery";
 const defaultValues: DeliveryI = {
   recolectionAddress: "",
   scheduledDate: "",
@@ -29,12 +30,15 @@ const defaultValues: DeliveryI = {
 };
 export default function DeliverInfoPage() {
   const router = useRouter();
-  const [values, setValues] = useState<DeliveryI>(defaultValues);
+  const delivery = useDeliveryStore((state) => state.delivery);
+  const updateDelivery = useDeliveryStore((state) => state.updateDelivery);
+  const [values, setValues] = useState<DeliveryI>(delivery ?? defaultValues);
   const handleChangeValue = (key: keyof DeliveryI, value: string) => {
     setValues({ ...values, [key]: value });
   };
 
   const onPressNext = () => {
+    updateDelivery(values);
     router.push("/order/packages-list");
   };
   return (
