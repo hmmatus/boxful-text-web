@@ -1,3 +1,22 @@
+@use "@/styles/theme/theme" as theme;
 .packages-list-container {
   padding: 63px 50px 0 50px;
+}
+.next-button {
+  @include theme.next-button;
+}
+
+.back-button {
+  @include theme.button;
+  width: 170px !important;
+  color: theme.$label !important;
+}
+
+.next-icon {
+  @include theme.next-icon;
+}
+
+.back-icon {
+  @include theme.next-icon;
+  margin-right: 20px;
 }

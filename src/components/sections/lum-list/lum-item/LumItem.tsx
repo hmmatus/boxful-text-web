@@ -2,6 +2,7 @@ import { LumI } from "@/types/lum.type";
 import styles from "./LumItem.module.scss";
 import Image from "next/image";
 import WrappedInputText from "@/components/inputs/input-text/WrappedInputText";
+import InputVolume from "@/components/inputs/input-volume/InputVolume";
 export interface LumItemProps {
   lum: LumI;
   onRemove: (lum: LumI) => void;
@@ -23,36 +24,16 @@ const LumItem: React.FC<LumItemProps> = ({ lum, onRemove }) => {
               label="Contenido"
             />
           </div>
-          <div className="flex flex-3 flex-row justify-center">
-            <Image
-              src="/icons/box.svg"
-              alt="box"
-              width={30}
-              height={30}
-              className={styles["box-icon"]}
-            />
-            <WrappedInputText
-              className={styles["dimensions-input"]}
-              style={{ borderRadius: "10px 0 0 10px" }}
-              label="Largo"
-              suffix={<span className={styles["dimensions-suffix"]}>cm</span>}
-              maxLength={3}
-            />
-            <WrappedInputText
-              className={styles["dimensions-input"]}
-              style={{ borderRadius: 0, borderLeft: 0, borderRight: 0 }}
-              label="Alto"
-              suffix={<span className={styles["dimensions-suffix"]}>cm</span>}
-              maxLength={3}
-            />
-            <WrappedInputText
-              className={styles["dimensions-input"]}
-              style={{ borderRadius: "0 10px 10px 0" }}
-              label="Ancho"
-              suffix={<span className={styles["dimensions-suffix"]}>cm</span>}
-              maxLength={3}
-            />
-          </div>
+          <InputVolume
+            value={{
+              height: 0,
+              length: 0,
+              width: 0,
+            }}
+            onChangeValue={(key, value) => {
+              console.log(key, value);
+            }}
+          />
         </div>
       </div>
       <div

@@ -8,13 +8,6 @@
   margin-top: 20px;
 }
 
-.box-icon {
-  margin: 24px 10px 0 0;
-  width: 30px;
-  height: 30px;
-  align-self: center;
-}
-
 .add-button-container {
   display: flex;
   justify-content: flex-end;
@@ -31,12 +24,4 @@
 
 .full-width {
   width: 100%;
-}
-
-.dimensions-input {
-  @include theme.input;
-}
-
-.dimensions-suffix {
-  color: theme.$placeholder;
 }

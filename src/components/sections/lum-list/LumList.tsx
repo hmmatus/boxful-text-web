@@ -6,7 +6,6 @@ export interface LumList {
   lums: LumI[];
 }
 const LumList: React.FC<LumList> = ({ lums }) => {
-  console.log("🚀 ~ lums:", lums);
   return (
     <section id="lum-list" className="mt-20">
       <label>Agrega tus bultos</label>

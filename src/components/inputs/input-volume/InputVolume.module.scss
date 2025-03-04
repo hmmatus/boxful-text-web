@@ -1,0 +1,16 @@
+@use "@/styles/theme/theme" as theme;
+
+.box-icon {
+  margin: 24px 10px 0 0;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+}
+
+.dimensions-input {
+  @include theme.input;
+}
+
+.dimensions-suffix {
+  color: theme.$placeholder;
+}

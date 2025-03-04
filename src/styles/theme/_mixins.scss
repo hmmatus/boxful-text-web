@@ -19,3 +19,11 @@
       border-radius: 10px !important;
       font-size: 18px !important;
 }
+@mixin next-button {
+  @include button;
+  justify-content: space-between !important;
+}
+
+@mixin next-icon {
+  font-size: 30px
+}
