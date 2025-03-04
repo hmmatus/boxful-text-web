@@ -1,4 +1,5 @@
 "use client";
+import "@ant-design/v5-patch-for-react-19";
 import LumForm from "@/components/forms/lum-form/LumForm";
 import styles from "./styles.module.scss";
 import LumList from "@/components/sections/lum-list/LumList";
