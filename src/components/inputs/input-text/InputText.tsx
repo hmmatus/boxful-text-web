@@ -1,6 +1,9 @@
 import { Input, InputProps } from "antd";
 import styles from "./InputText.module.scss";
-const InputText: React.FC<InputProps> = (props) => {
+interface InputTextProps extends InputProps {
+  suffixText?: string;
+}
+const InputText: React.FC<InputTextProps> = (props) => {
   return (
     <Input
       className={`${props.className} ${styles["input-text"]}`}

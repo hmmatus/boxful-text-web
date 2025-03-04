@@ -1,0 +1,42 @@
+@use "@/styles/theme/theme" as theme;
+
+.lum-form-container {
+  width: 100%;
+  padding: 20px;
+  background-color: theme.$secondary-background;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.box-icon {
+  margin: 24px 10px 0 0;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+}
+
+.add-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 57px;
+}
+
+.add-button {
+  @include theme.button;
+  width: 170px !important;
+  background-color: theme.$third-background !important;
+  color: theme.$label !important;
+  justify-content: space-between !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.dimensions-input {
+  @include theme.input;
+}
+
+.dimensions-suffix {
+  color: theme.$placeholder;
+}

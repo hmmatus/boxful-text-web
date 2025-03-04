@@ -21,6 +21,10 @@
 .location-icon {
   margin-top: 20px;
 }
+.next-button {
+  @include theme.button;
+  justify-content: space-between !important;
+}
 .next-icon {
   font-size: 30px
 }

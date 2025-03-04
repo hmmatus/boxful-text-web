@@ -1,0 +1,21 @@
+@use "@/styles/theme/theme" as theme;
+@use "../../../forms/lum-form/LumForm.module.scss";
+
+.lum-item-container {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid theme.$primary-green;
+  border-radius: 10px;
+
+  &.form-container {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+  }
+}
+
+.delete-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}

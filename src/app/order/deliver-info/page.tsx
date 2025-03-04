@@ -10,7 +10,7 @@ import WrappedInputSelect from "@/components/inputs/input-select/WrappedInputSel
 import addressList from "@/utils/address-list";
 import departmentList from "@/utils/department-list";
 import municipalityList from "@/utils/municypality-list";
-import StepButton from "@/components/buttons/step-button/StepButton";
+import { Button } from "antd";
 export default function DeliverInfoPage() {
   const [value, setValue] = useState("");
   return (
@@ -103,7 +103,8 @@ export default function DeliverInfoPage() {
         />
       </div>
       <div className={`${styles["row-content"]} justify-end`}>
-        <StepButton
+        <Button
+          className={styles["next-button"]}
           color="primary"
           variant="solid"
           icon={<ArrowRightOutlined className={styles["next-icon"]} />}
@@ -111,7 +112,7 @@ export default function DeliverInfoPage() {
           onClick={() => console.log("test")}
         >
           Siguiente
-        </StepButton>
+        </Button>
       </div>
     </main>
   );

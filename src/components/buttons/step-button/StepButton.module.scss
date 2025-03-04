@@ -1,8 +1,0 @@
-@use "@/styles/theme/theme" as theme;
-
-.main-button {
-  @include theme.button;
-  font-size: 18px !important;
-  display: flex !important;
-  justify-content: space-between !important;
-}
