@@ -41,6 +41,7 @@ const InputVolume: React.FC<InputVolumeProps> = ({
         label="Largo"
         suffix={<span className={styles["dimensions-suffix"]}>cm</span>}
         maxLength={3}
+        type="number"
         value={value.length}
         onChange={(e) => handleInput("length", e)}
       />
@@ -50,6 +51,7 @@ const InputVolume: React.FC<InputVolumeProps> = ({
         label="Alto"
         suffix={<span className={styles["dimensions-suffix"]}>cm</span>}
         maxLength={3}
+        type="number"
         value={value.height}
         onChange={(e) => handleInput("height", e)}
       />
@@ -59,6 +61,7 @@ const InputVolume: React.FC<InputVolumeProps> = ({
         label="Ancho"
         suffix={<span className={styles["dimensions-suffix"]}>cm</span>}
         maxLength={3}
+        type="number"
         value={value.width}
         onChange={(e) => handleInput("width", e)}
       />

@@ -5,13 +5,13 @@ import WrappedInputText from "@/components/inputs/input-text/WrappedInputText";
 import { PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import InputVolume from "@/components/inputs/input-volume/InputVolume";
-import { LumI } from "@/types/lum.type";
+import { LumpI } from "@/types/lum.type";
 import { VolumeI } from "@/types/volume.type";
 
 interface LumFormProps {
-  onSend: (data: LumI) => void;
+  onSend: (data: LumpI) => void;
 }
-const defaultValues: LumI = {
+const defaultValues: LumpI = {
   length: 0,
   width: 0,
   height: 0,
@@ -19,7 +19,7 @@ const defaultValues: LumI = {
   content: "",
 };
 const LumForm: React.FC<LumFormProps> = ({ onSend }) => {
-  const [lumData, setLumData] = useState<LumI>(defaultValues);
+  const [lumData, setLumData] = useState<LumpI>(defaultValues);
   const handleChangeInputVolume = (key: keyof VolumeI, value: VolumeI) => {
     const newValue = value[key];
     setLumData({ ...lumData, [key]: newValue });
