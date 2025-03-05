@@ -6,7 +6,7 @@ type ResponseI = {
   jwt: string;
 };
 const mutationFn = async (data: LoginI): Promise<ResponseI> => {
-  return (await apiClient.post("/users/login", data)) as ResponseI;
+  return (await apiClient.post("/users/login", data)).data as ResponseI;
 };
 
 const useLoginUserHook = () => {

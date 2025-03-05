@@ -4,18 +4,20 @@ import { useState } from "react";
 import { Button } from "antd";
 import { useRouter } from "next/navigation";
 import useLoginUserHook from "@/hooks/useLoginHook";
-import { JWT_TOKEN_KEY } from "@/consts/jwt";
+import useSetCookiesHook from "@/hooks/useSetCookiesHook";
+
 export default function LoginPage() {
   const router = useRouter();
-  const { mutateAsync } = useLoginUserHook();
+  const { mutateAsync: loginAsync } = useLoginUserHook();
+  const { mutateAsync: setCookiesAsync } = useSetCookiesHook();
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
   const handleLogin = async () => {
     try {
-      const login = await mutateAsync(loginData);
-      localStorage.setItem(JWT_TOKEN_KEY, login.jwt);
+      const login = await loginAsync(loginData);
+      await setCookiesAsync(login.jwt);
       router.push("/order/deliver-info");
     } catch (error) {
       alert(error);
