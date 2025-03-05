@@ -1,0 +1,6 @@
+@use "@/styles/theme/theme" as theme;
+
+.input-text {
+  @include theme.input;
+    
+}

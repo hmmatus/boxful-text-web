@@ -1,0 +1,12 @@
+@use "@/styles/theme/theme" as theme;
+
+.input-select {
+  @include theme.input;
+  height: 60px !important;
+}
+
+.select-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: theme.$label !important;
+}

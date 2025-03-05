@@ -1,0 +1,22 @@
+@use "@/styles/theme/theme" as theme;
+
+.input-datepicker-container {
+  @include theme.input;
+  display: flex;
+}
+
+.calendar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: theme.$border;
+  border-radius: 10px 0 0 10px;
+  padding: 16px;
+  width: 60px;
+}
+
+.input-datepicker {
+  width: 100%;
+  border-radius: 0 10px 10px 0 !important;
+  border: 0 !important;
+}

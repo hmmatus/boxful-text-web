@@ -1,0 +1,11 @@
+@use "@/styles/theme/theme" as theme;
+
+.phone-input-container {
+  @include theme.input;
+  display: flex;
+}
+
+.phone-input {
+  flex: 3;
+  height: 100% !important;
+}
