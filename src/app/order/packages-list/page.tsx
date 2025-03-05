@@ -54,7 +54,7 @@ export default function PackageListPage() {
           icon={<ArrowLeftOutlined className={styles["back-icon"]} />}
           onClick={onGoBack}
         >
-          Siguiente
+          Volver
         </Button>
         <Button
           className={styles["next-button"]}
