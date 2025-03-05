@@ -35,11 +35,13 @@ export default function PackageListPage() {
         lumps: lums,
       };
       await mutateAsync(orderData);
+      alert("Orden enviada correctamente");
     } catch (error) {
       console.log(error);
       alert("Error al enviar la orden");
     }
   };
+  const disabled = lums.length === 0;
   return (
     <main className={styles["packages-list-container"]}>
       <LumForm onSend={(data) => setLums([data, ...lums])} />
@@ -63,6 +65,7 @@ export default function PackageListPage() {
           icon={<ArrowRightOutlined className={styles["next-icon"]} />}
           iconPosition="end"
           onClick={handleSaveOrder}
+          disabled={disabled}
         >
           Enviar
         </Button>

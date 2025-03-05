@@ -10,7 +10,6 @@ export function convertToISOString(
   dateString: string,
   dateFormat: string = "dd/MM/yyyy"
 ): string {
-  console.log("🚀 ~ convertToISOString ~ dateString:", dateString);
   const date = parse(dateString, dateFormat, new Date());
   return date.toISOString();
 }

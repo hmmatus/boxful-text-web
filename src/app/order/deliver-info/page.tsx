@@ -37,10 +37,18 @@ export default function DeliverInfoPage() {
     setValues({ ...values, [key]: value });
   };
 
-  const onPressNext = () => {
-    updateDelivery(values);
-    router.push("/order/packages-list");
-  };
+    const areAllValuesFilled = (values: DeliveryI): boolean => {
+      return Object.values(values).every((value) => value.trim() !== "");
+    };
+
+    const onPressNext = () => {
+      if (areAllValuesFilled(values)) {
+        updateDelivery(values);
+        router.push("/order/packages-list");
+      } else {
+        alert("Por favor llena todos los campos");
+      }
+    };
   return (
     <main className={styles["delivery-info-page-container"]}>
       <div className={styles["row-content"]}>
