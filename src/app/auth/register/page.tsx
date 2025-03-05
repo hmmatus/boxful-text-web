@@ -1,18 +1,26 @@
 "use client";
 import WrappedInputText from "@/components/inputs/input-text/WrappedInputText";
+import useRegisterUserHook from "@/hooks/useRegisterHook";
 import { Button } from "antd";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function RegisterPage() {
   const router = useRouter();
+  const { mutateAsync } = useRegisterUserHook();
   const [registerData, setRegisterData] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const handleRegister = () => {
-    console.log("test");
+  const handleRegister = async () => {
+    try {
+      await mutateAsync(registerData);
+      alert("Usuario registrado correctamente");
+      router.push("/auth/login");
+    } catch (error) {
+      alert(error);
+    }
   };
   return (
     <div className="flex flex-1 flex-col gap-10">
