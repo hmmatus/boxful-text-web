@@ -3,14 +3,14 @@ import "@ant-design/v5-patch-for-react-19";
 import { useRouter } from "next/navigation";
 import LumForm from "@/components/forms/lum-form/LumForm";
 import styles from "./styles.module.scss";
-import LumList from "@/components/sections/lum-list/LumList";
-import { LumI } from "@/types/lum.type";
+import LumList from "@/components/sections/lump-list/LumpList";
+import { LumpI } from "@/types/lum.type";
 import { useState } from "react";
 import { Button } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 export default function PackageListPage() {
   const router = useRouter();
-  const [lums, setLums] = useState<LumI[]>([
+  const [lums, setLums] = useState<LumpI[]>([
     {
       length: 0,
       width: 0,

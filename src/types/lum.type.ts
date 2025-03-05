@@ -1,4 +1,4 @@
-export interface LumI {
+export interface LumpI {
   length: number;
   width: number;
   height: number;

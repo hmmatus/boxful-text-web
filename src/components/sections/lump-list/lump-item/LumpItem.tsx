@@ -1,16 +1,16 @@
-import { LumI } from "@/types/lum.type";
-import styles from "./LumItem.module.scss";
+import { LumpI } from "@/types/lum.type";
+import styles from "./LumpItem.module.scss";
 import Image from "next/image";
 import WrappedInputText from "@/components/inputs/input-text/WrappedInputText";
 import InputVolume from "@/components/inputs/input-volume/InputVolume";
 import { useState } from "react";
 import { VolumeI } from "@/types/volume.type";
 export interface LumItemProps {
-  lum: LumI;
-  onRemove: (lum: LumI) => void;
+  lum: LumpI;
+  onRemove: (lum: LumpI) => void;
 }
 const LumItem: React.FC<LumItemProps> = ({ lum, onRemove }) => {
-  const [lumData, setLumData] = useState<LumI>(lum);
+  const [lumData, setLumData] = useState<LumpI>(lum);
 
   const onChangeInputVolume = (key: keyof VolumeI, value: VolumeI) => {
     const newValue = value[key];
