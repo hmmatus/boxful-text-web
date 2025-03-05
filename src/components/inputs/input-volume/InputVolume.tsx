@@ -19,7 +19,7 @@ const InputVolume: React.FC<InputVolumeProps> = ({
     key: keyof VolumeI,
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const newValue = { ...volume, [key]: e.target.value };
+    const newValue = { ...volume, [key]: parseInt(e.target.value) };
     setVolume(newValue);
     onChangeValue(key, newValue);
   };
